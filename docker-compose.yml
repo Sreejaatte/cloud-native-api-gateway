@@ -1,0 +1,17 @@
+
+version: '3.9'
+
+services:
+  gateway:
+    build: .
+    ports:
+      - "8000:8000"
+
+  redis:
+    image: redis:7
+
+  postgres:
+    image: postgres:15
+
+  nginx:
+    image: nginx:latest
