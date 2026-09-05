@@ -1,119 +1,114 @@
-# Cloud-Native API Gateway & Authentication System
+A backend project that demonstrates centralized API routing, authentication, request handling, and cloud-oriented deployment using Python and FastAPI.
 
-Production-grade API gateway platform with scalable authentication, traffic routing, observability, rate limiting, cloud-native deployment, and secure backend infrastructure.
+## Overview
 
----
+An API gateway can provide a single entry point for client applications and handle common concerns such as authentication, routing, validation, and monitoring.
 
-# Business Problem
+This project implements these concepts using FastAPI and supporting infrastructure.
 
-Modern distributed applications require centralized API orchestration to manage authentication, traffic routing, security, monitoring, and scalable backend communication.
+## Features
 
----
-
-# Why This Matters
-
-Without centralized API management, organizations face scalability bottlenecks, authentication vulnerabilities, poor observability, and unreliable backend communication.
-
-This platform enables secure, scalable, and observable API orchestration using production-grade engineering workflows.
-
----
-
-# Engineering Highlights
-
-- FastAPI API gateway architecture
-- JWT authentication workflows
-- OAuth-ready infrastructure
-- Rate limiting middleware
+- API gateway architecture
+- REST API routing
+- JWT authentication
+- Request validation
+- Rate limiting
 - Redis caching
 - NGINX reverse proxy
-- Dockerized deployment
-- Kubernetes orchestration
+- Health checks
+- Centralized logging
+- Docker containerization
+- Kubernetes deployment configuration
 - GitHub Actions CI/CD
-- Monitoring & observability
-- Centralized logging & health checks
 
----
+## Tech Stack
 
-# Measurable Engineering Outcomes
+### Backend
+- Python
+- FastAPI
 
-- Reduced authentication latency by 30%
-- Improved API throughput by 45%
-- Achieved 99.9% uptime under load testing
-- Automated deployment workflows reducing release time by 60%
-- Containerized deployment with <2 minute startup time
+### Authentication
+- JWT
+- Authentication middleware
 
----
+### Database & Cache
+- PostgreSQL
+- Redis
 
-# Production Tech Stack
+### Infrastructure
+- NGINX
+- Docker
+- Kubernetes
 
-Python • FastAPI • Redis • PostgreSQL • Docker • Kubernetes • NGINX • JWT • GitHub Actions • Prometheus • Grafana
+### DevOps
+- GitHub Actions
+- CI/CD
 
----
+### Monitoring
+- Prometheus
+- Grafana
 
-# System Architecture
+## Architecture
 
-```text
-Client Applications → NGINX Gateway → FastAPI API Gateway
-                                            ↓
-                                       JWT Authentication
-                                            ↓
-                                  PostgreSQL + Redis Cache
-                                            ↓
-                             Monitoring & Observability Stack
-```
-Key Features
-API Gateway Architecture
-Centralized routing
-Reverse proxy management
-Traffic orchestration
-Load balancing support
-Security Engineering
-JWT authentication
-OAuth-ready design
-API rate limiting
-Secure token workflows
-Cloud-Native Infrastructure
-Dockerized services
-Kubernetes deployment
-Environment-based configs
-Scalable deployment architecture
-Reliability Engineering
-Health checks
-Monitoring dashboards
-Error tracking
-Request metrics
-API Documentation
+Client
+   ↓
+NGINX Reverse Proxy
+   ↓
+FastAPI API Gateway
+   ↓
+Authentication & Validation
+   ↓
+Backend Services
+   ↓
+PostgreSQL / Redis
+   ↓
+Monitoring
+API Endpoints
 Login
-
 POST /api/v1/auth/login
-
-Token Validation
-
+Validate Token
 GET /api/v1/auth/validate
-
 Health Check
-
 GET /health
+Authentication Flow
+Client
+  ↓
+Login
+  ↓
+JWT Token
+  ↓
+API Request
+  ↓
+Token Validation
+  ↓
+Authorized Request
+Running Locally
+Clone the repository
+git clone https://github.com/Sreejaatte/cloud-native-api-gateway.git
+cd cloud-native-api-gateway
+Install dependencies
+pip install -r requirements.txt
+Run with Docker Compose
+docker compose up --build
 
-Deployment
-Local Development
-Docker Compose Up --build
-Cloud Deployment
-AWS ECS
-Render
-Railway
-Kubernetes
-Monitoring & Observability
-API request tracking
-Authentication monitoring
-Infrastructure metrics
-Error logging
-Traffic analytics
-CI/CD Pipeline
+The API can then be accessed through the configured local port.
 
-GitHub Actions workflow automatically:
+Project Structure
+app/
+kubernetes/
+nginx/
+Dockerfile
+docker-compose.yml
+requirements.txt
 
-Runs automated tests
-Builds Docker images
-Validates code quality
-Deploys production builds
+Future Improvements
+
+Add more backend services
+Improve authentication flows
+Add distributed tracing
+Improve rate limiting
+Expand monitoring
+Add additional API gateway features
+License
+
+MIT
